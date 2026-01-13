@@ -1,8 +1,9 @@
-import { Operator } from "./types";
+import { Operator } from "../types";
+
 
 export const take =
   <T>(limit: number): Operator<T, T> =>
-    async function* (iterable) {
+    async function* (iterable: AsyncIterable<T>) {
       let taken = 0;
 
       for await (const item of iterable) {
