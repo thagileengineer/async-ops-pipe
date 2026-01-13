@@ -1,7 +1,20 @@
-export const take = count => async function* (iterable) {
-    let taken = 0;
-    for await (const item of iterable){
-        if(taken++ >= count) return
-        yield item;
+export const take = limit => async function* (iterable) {
+  const iterator = iterable[Symbol.asyncIterator]?.()
+    ?? iterable[Symbol.iterator]();
+
+  let taken = 0;
+
+  try {
+    while (taken < limit) {
+      const { value, done } = await iterator.next();
+      if (done) return;
+
+      taken++;
+      yield value;
     }
-}
+  } finally {
+    if (iterator.return) {
+      await iterator.return();
+    }
+  }
+};
