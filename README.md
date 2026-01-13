@@ -1,11 +1,11 @@
-# async-pipe
+# async-ops-pipe
 
 > A lightweight, pull-based async pipeline library for JavaScript
 > **Lazy. Composable. Backpressure-aware.**
 
 ---
 
-## Why async-pipe?
+## Why async-ops-pipe?
 
 Modern JavaScript has powerful primitives:
 
@@ -15,7 +15,7 @@ Modern JavaScript has powerful primitives:
 
 But composing them cleanly for **real backend workflows** is still painful.
 
-`async-pipe` solves this by providing:
+`async-ops-pipe` solves this by providing:
 
 * A **minimal pipeline abstraction**
 * Built on **native async iterators**
@@ -59,7 +59,7 @@ for await (const item of pipeline) {
 ## Installation
 
 ```bash
-npm install async-pipe
+npm install async-ops-pipe
 ```
 
 ---
@@ -67,7 +67,7 @@ npm install async-pipe
 ## Basic Usage
 
 ```js
-import { pipe, map, filter, take } from "async-pipe";
+import { pipe, map, filter, take } from "async-ops-pipe";
 
 const pipeline = pipe(
   [1, 2, 3, 4, 5],
@@ -172,7 +172,7 @@ rateLimit(1000)
 
 > **Backpressure means the consumer controls the producer.**
 
-In `async-pipe`:
+In `async-ops-pipe`:
 
 * Data is pulled, not pushed
 * Upstream sources produce values **only when requested**
@@ -187,7 +187,7 @@ Without backpressure:
 * DB cursors keep reading
 * Memory grows unnecessarily
 
-With `async-pipe`:
+With `async-ops-pipe`:
 
 * Iteration stops immediately when the consumer stops
 * Resources are released correctly
@@ -274,7 +274,7 @@ for await (const x of pipe(asyncSource(), map(x => x * 10))) {
 
 ## Why not RxJS?
 
-| async-pipe             | RxJS               |
+| async-ops-pipe             | RxJS               |
 | ---------------------- | ------------------ |
 | Pull-based             | Push-based         |
 | Native async iterators | Custom Observable  |
@@ -282,7 +282,7 @@ for await (const x of pipe(asyncSource(), map(x => x * 10))) {
 | Backend-friendly       | UI-focused         |
 | Zero deps              | Heavy runtime      |
 
-**Use async-pipe when:**
+**Use async-ops-pipe when:**
 
 * You process data
 * You control consumption
@@ -319,9 +319,9 @@ MIT
 
 ### Final note (keep this)
 
-> async-pipe is intentionally small.
+> async-ops-pipe is intentionally small.
 > If you need push-based event streams, use RxJS.
-> If you need **controlled, lazy data processing**, use async-pipe.
+> If you need **controlled, lazy data processing**, use async-ops-pipe.
 
 ---
 
