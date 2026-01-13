@@ -302,15 +302,6 @@ for await (const x of pipe(asyncSource(), map(x => x * 10))) {
 
 ---
 
-## Roadmap
-
-* Concurrency operator
-* Retry with backoff
-* AbortController support
-* TypeScript-first API
-
----
-
 ## License
 
 MIT
@@ -323,13 +314,3 @@ MIT
 > If you need push-based event streams, use RxJS.
 > If you need **controlled, lazy data processing**, use async-ops-pipe.
 
----
-
-If you want, next I can:
-
-* Tighten the language for npm discoverability
-* Add diagrams (ASCII or SVG)
-* Write a **“Why backpressure matters” blog post**
-* Convert this to a polished **OSS landing README**
-
-Just tell me 👌
