@@ -1,6 +1,6 @@
 {
   "name": "async-ops-pipe",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Pull-based async pipelines with composable operators and built-in backpressure",
   "type": "module",
   "main": "./dist/index.js",
