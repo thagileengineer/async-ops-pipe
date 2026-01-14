@@ -17,8 +17,9 @@
     "LICENSE"
   ],
   "scripts": {
-    "build:types": "tsc",
-    "test": "vitest"
+    "test": "vitest",
+    "build": "tsc",
+    "prepublishOnly": "npm run build"
   },
   "keywords": [
     "async",
